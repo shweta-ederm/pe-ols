@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirm Details - Integrated Derm of North Raleigh</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <a class="logo" href="index.html">
+      <span class="brand-main">INTEGRATED</span>
+      <span class="brand-main">DERMATOLOGY</span>
+      <span class="brand-sub">OF NORTH RALEIGH</span>
+    </a>
+    <div class="practice-name">Integrated Derm of North Raleigh</div>
+  </div>
+
+  <div class="steps">
+    <div class="step done">
+      <span class="step-circle">&#10003;</span>
+      <span class="step-label">Choose Provider</span>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step done">
+      <span class="step-circle">&#10003;</span>
+      <span class="step-label">Select Time</span>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step active">
+      <span class="step-circle">3</span>
+      <span class="step-label">Confirm Details</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <span class="step-circle">4</span>
+      <span class="step-label">Complete</span>
+    </div>
+  </div>
+
+  <button class="login-btn">Log in</button>
+</header>
+
+<div class="page-shell">
+  <div class="content-wrap">
+    <div class="page-title-row">
+      <div class="page-title">Confirm Details</div>
+    </div>
+
+    <div class="card">
+      <div class="appt-summary-row">
+        <div class="provider-summary">
+          <a href="provider-profile.html"><img class="avatar" src="https://i.pravatar.cc/120?img=13" alt="Dr. Jorge Fernandez"></a>
+          <div class="provider-summary-info">
+            <div class="provider-name-row">
+              <a class="provider-name" href="provider-profile.html">Dr. Jorge Fernandez, FNP-C</a>
+              <span class="rating"><span class="star">&#9733;</span> 4.6 (92)</span>
+            </div>
+            <div class="provider-location">Integrated Derm of N. Raleigh &middot; 3809 COMPUTER DR STE 200, Raleigh, NC 27609-6518</div>
+          </div>
+        </div>
+        <div class="appt-summary-datetime">
+          <div>
+            <div class="date" id="appt-date">Mon, Sep 21, 2026</div>
+            <div class="time" id="appt-time">2:00 PM</div>
+          </div>
+          <span>&#9998;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <button class="login-quicker-btn">Login For Quicker Booking</button>
+
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" placeholder="Last Name">
+          </div>
+          <div class="form-group">
+            <label>Date of Birth <span class="required">*</span></label>
+            <input type="text" placeholder="MM/DD/YYYY">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:20px;">
+          <label>Insurance Provider <span class="required">*</span></label>
+          <select>
+            <option selected disabled>Select insurance provider</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Reason for Visit (Optional)</label>
+          <textarea placeholder="Reason for Visit"></textarea>
+        </div>
+
+        <div class="hipaa-notice">
+          <div class="hipaa-notice-title">HIPAA Compliance Notice</div>
+          <div class="hipaa-notice-body">Your information is protected under HIPAA regulations. We will never share your data without your consent.</div>
+        </div>
+
+        <button type="button" class="confirm-btn" id="confirm-btn">Confirm Appointment</button>
+      </form>
+    </div>
+
+    <div class="proto-panel">
+      <div class="proto-panel-label">Prototype testing controls &ndash; not production UI</div>
+      <div class="proto-panel-note">
+        Simulates the patient status the PMS returns after patient information is submitted. Use either button with any selected slot to demonstrate both workflows.
+      </div>
+      <div class="proto-panel-actions">
+        <button type="button" class="proto-btn" data-simulate="new">Submit as New Patient</button>
+        <button type="button" class="proto-btn" data-simulate="established">Submit as Established Patient</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/scheduler.js"></script>
+<script>
+  var selected = Scheduler.getSelectedSlot();
+  if (selected) {
+    document.getElementById('appt-date').textContent = selected.day + ', 2026';
+    document.getElementById('appt-time').textContent = selected.time;
+  }
+
+  function submitWithStatus(pmsStatus) {
+    var slot = Scheduler.getSelectedSlot();
+    var selectedAs = slot ? slot.selectedAs : Scheduler.getPatientType();
+
+    if (selectedAs === pmsStatus) {
+      window.location.href = 'complete.html';
+      return;
+    }
+
+    Scheduler.setPatientType(pmsStatus);
+    Scheduler.setConflict({ reserved: selectedAs });
+    window.location.href = 'select-time.html';
+  }
+
+  document.querySelectorAll('.proto-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      submitWithStatus(btn.dataset.simulate);
+    });
+  });
+
+  document.getElementById('confirm-btn').addEventListener('click', function () {
+    submitWithStatus(Scheduler.getPatientType());
+  });
+</script>
+
+</body>
+</html>

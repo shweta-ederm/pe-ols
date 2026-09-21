@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Time - Integrated Derm of North Raleigh</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <a class="logo" href="index.html">
+      <span class="brand-main">INTEGRATED</span>
+      <span class="brand-main">DERMATOLOGY</span>
+      <span class="brand-sub">OF NORTH RALEIGH</span>
+    </a>
+    <div class="practice-name">Integrated Derm of North Raleigh</div>
+  </div>
+
+  <div class="steps">
+    <div class="step done">
+      <span class="step-circle">&#10003;</span>
+      <span class="step-label">Choose Provider</span>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step active">
+      <span class="step-circle">2</span>
+      <span class="step-label">Select Time</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <span class="step-circle">3</span>
+      <span class="step-label">Confirm Details</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <span class="step-circle">4</span>
+      <span class="step-label">Complete</span>
+    </div>
+  </div>
+
+  <button class="login-btn">Log in</button>
+</header>
+
+<div class="page-shell">
+  <div class="content-wrap">
+    <div class="page-title-row">
+      <div class="page-title">Select Time</div>
+      <a class="back-link" href="index.html">&#8249; Back to search results</a>
+    </div>
+
+    <div class="card">
+      <div class="provider-summary">
+        <a href="provider-profile.html"><img class="avatar" src="https://i.pravatar.cc/120?img=13" alt="Dr. Jorge Fernandez"></a>
+        <div class="provider-summary-info">
+          <div class="provider-name-row">
+            <a class="provider-name" href="provider-profile.html">Dr. Jorge Fernandez, FNP-C</a>
+            <span class="rating"><span class="star">&#9733;</span> 4.6 (92)</span>
+          </div>
+          <div class="provider-location">Integrated Derm of N. Raleigh - 3809 COMPUTER DR STE 200, Raleigh, NC 27609-6518</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="appt-filter-row">
+        <div class="appt-filter-group appt-filter-group--grow">
+          <label class="appt-filter-label" for="appt-type">Appointment Type</label>
+          <select class="appt-type-select" id="appt-type">
+            <option selected>Derm</option>
+            <option>Cosmetic</option>
+            <option>Skin Screening</option>
+          </select>
+        </div>
+        <div class="appt-filter-group">
+          <span class="appt-filter-label">Appointments for</span>
+          <div class="patient-type-toggle" id="patient-type-toggle" role="group" aria-label="Appointments for">
+            <button type="button" class="patient-type-option" data-patient-type="new">New patient</button>
+            <button type="button" class="patient-type-option" data-patient-type="established">Existing patient</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="conflict-host"></div>
+
+      <div class="section-label available-times-label">Available Times</div>
+
+      <div id="availability"></div>
+
+      <button class="show-more-btn">Show more availability</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/scheduler.js"></script>
+<script>
+  initPatientTypeSelector({
+    toggleSelector: '#patient-type-toggle',
+    slotsSelector: '#availability',
+    conflictSelector: '#conflict-host'
+  });
+</script>
+
+</body>
+</html>

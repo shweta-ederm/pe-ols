@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrated Derm of North Raleigh - Choose Provider</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <a class="logo" href="index.html">
+      <span class="brand-main">INTEGRATED</span>
+      <span class="brand-main">DERMATOLOGY</span>
+      <span class="brand-sub">OF NORTH RALEIGH</span>
+    </a>
+    <div class="practice-name">Integrated Derm of North Raleigh</div>
+  </div>
+
+  <div class="steps">
+    <div class="step active">
+      <span class="step-circle">1</span>
+      <span class="step-label">Choose Provider</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <span class="step-circle">2</span>
+      <span class="step-label">Select Time</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <span class="step-circle">3</span>
+      <span class="step-label">Confirm Details</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <span class="step-circle">4</span>
+      <span class="step-label">Complete</span>
+    </div>
+  </div>
+
+  <button class="login-btn">Log in</button>
+</header>
+
+<div class="search-bar">
+  <div class="select-box">Integrated Derm of ... <span>&#9662;</span></div>
+  <div class="search-input-wrap">
+    <input type="text" placeholder="Search by condition, procedure, or doctor name">
+  </div>
+  <button class="search-btn">Search</button>
+  <div class="select-box">25 mi</div>
+  <div class="select-box">Appointment Type <span>&#9662;</span></div>
+  <div class="select-box">Gender <span>&#9662;</span></div>
+  <div class="select-box">Language <span>&#9662;</span></div>
+  <div class="select-box">Insurance <span>&#9662;</span></div>
+  <div class="clear-filters">Clear filters</div>
+</div>
+
+<div class="result-count">2 providers</div>
+
+<div class="toolbar-row">
+  <div class="toolbar-left">
+    <button class="icon-btn">&#8249;</button>
+    <div class="date-pill">Sep 21 &ndash; 27 <span>&#9662;</span></div>
+    <button class="icon-btn">&#8250;</button>
+    <div class="time-pill">Time <span>&#9662;</span></div>
+    <div class="patient-type-toggle" id="patient-type-toggle" role="group" aria-label="Appointments for">
+      <button type="button" class="patient-type-option" data-patient-type="new">New patient</button>
+      <button type="button" class="patient-type-option" data-patient-type="established">Existing patient</button>
+    </div>
+  </div>
+  <div class="toolbar-right">
+    <span>Hide map</span>
+    <span>Hide opening counts</span>
+  </div>
+</div>
+
+<div class="split-layout">
+  <div class="results-col">
+
+    <div class="provider-card">
+      <div class="provider-card-top">
+        <a href="provider-profile.html"><img class="avatar" src="https://i.pravatar.cc/120?img=13" alt="Jorge Fernandez"></a>
+        <div class="provider-info">
+          <div class="provider-name-row">
+            <a class="provider-name" href="provider-profile.html">Jorge Fernandez, FNP-C</a>
+            <span class="rating"><span class="star">&#9733;</span> 4.6 (92)</span>
+          </div>
+          <div class="provider-specialty">Psoriasis</div>
+          <div class="provider-location">Raleigh, NC</div>
+          <div class="provider-address">3809 COMPUTER DR STE 200</div>
+        </div>
+        <div class="provider-card-icons">
+          <span>&#9825;</span>
+        </div>
+      </div>
+
+      <div class="day-slots" data-day-counts="1"></div>
+
+      <a class="see-availability" href="select-time.html">See all availability</a>
+    </div>
+
+    <div class="provider-card">
+      <div class="provider-card-top">
+        <a href="#"><img class="avatar" src="https://i.pravatar.cc/120?img=45" alt="Lena Langer"></a>
+        <div class="provider-info">
+          <div class="provider-name-row">
+            <a class="provider-name" href="#">Lena Langer, PA-C</a>
+            <span class="rating"><span class="star">&#9733;</span> 4.7 (530)</span>
+          </div>
+          <div class="provider-specialty">Cosmetic Dermatology</div>
+          <div class="provider-location">Raleigh, NC</div>
+          <div class="provider-address">3809 COMPUTER DR STE 200</div>
+        </div>
+        <div class="provider-card-icons">
+          <span>&#9825;</span>
+        </div>
+      </div>
+
+      <div class="day-slots" data-day-counts="1.5"></div>
+
+      <a class="see-availability" href="select-time.html">See all availability</a>
+    </div>
+
+  </div>
+
+  <div class="map-col">
+    <div class="map-placeholder">Map view</div>
+  </div>
+</div>
+
+<script src="js/scheduler.js"></script>
+<script>
+  initSearchResults({ toggleSelector: '#patient-type-toggle' });
+</script>
+
+</body>
+</html>
