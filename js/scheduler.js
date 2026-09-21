@@ -1,4 +1,4 @@
-// Slot eligibility: 'new' = new patients only, 'established' = existing patients only, 'both' = either.
+// Slot eligibility: 'new' = new patients only, 'established' = established patients only, 'both' = either.
 // Mirrors provider scheduling templates that restrict slots by patient type.
 var AVAILABILITY = [
   {
@@ -271,11 +271,11 @@ function renderConflictBanner(selector) {
   var title =
     conflict.reserved === 'new'
       ? 'This appointment time is reserved for new patients.'
-      : 'This appointment time is reserved for existing patients.';
+      : 'This appointment time is reserved for established patients.';
 
   var body =
     conflict.reserved === 'new'
-      ? 'We found an existing patient record for you. Please select another available time.'
+      ? 'We found an established patient record for you. Please select another available time.'
       : 'Please select another available time.';
 
   host.innerHTML =
