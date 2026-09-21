@@ -211,6 +211,14 @@ button {
   gap: 10px;
 }
 
+/* While the map sits beside the results, keep the toolbar over the results
+   column only so its right-aligned controls do not drift onto the map. */
+@media (min-width: 901px) {
+  .toolbar-row {
+    width: 55%;
+  }
+}
+
 .toolbar-left {
   display: flex;
   align-items: center;
