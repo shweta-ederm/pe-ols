@@ -218,6 +218,11 @@ button {
   flex-wrap: wrap;
 }
 
+.toolbar-left .icon-btn {
+  height: 40px;
+  width: 36px;
+}
+
 .icon-btn {
   border: 1px solid #d7dbe0;
   background: #fff;
@@ -235,25 +240,35 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  height: 40px;
   border: 1px solid #d7dbe0;
   border-radius: 6px;
-  padding: 8px 12px;
+  padding: 0 12px;
   font-size: 14px;
 }
 
 .toolbar-right {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
   font-size: 13px;
   color: #1a73c7;
+  flex-wrap: wrap;
 }
 
-.toolbar-right span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
+.toolbar-toggle-btn {
+  height: 40px;
+  border: 1px solid #d7dbe0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f2430;
+  font-size: 14px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.toolbar-toggle-btn:hover {
+  background: #f4f5f7;
 }
 
 /* Split layout: list + map */
